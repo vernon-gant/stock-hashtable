@@ -10,7 +10,7 @@ public:
     void run();
 
 private:
-    // Instance of StockHashTable to store stocks
+   
     StockHashTable stockHashTable;
 };
 
