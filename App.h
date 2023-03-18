@@ -6,7 +6,7 @@
 
 class App {
 public:
-    // Runs the program
+
     void run();
 
 private:
