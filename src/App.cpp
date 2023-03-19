@@ -1,4 +1,4 @@
-#include "App.h"
+#include "../includes/App.h"
 
 void App::run() {
     int command;
@@ -32,7 +32,7 @@ void App::run() {
                 try {
                     auto keyword = UI::scanKeyword();
                     Stock &stock = stockHashTable.search(keyword);
-                    std::string path = UI::scanFilePath();
+                    std::string path = UI::scanFileName();
                     stock.importPrices(path);
                     std::cout << "Price for " << stock.signature() << " was imported successfully!" << std::endl;
                 } catch (std::runtime_error &e) {
@@ -64,14 +64,14 @@ void App::run() {
                 break;
             case 6: {
                 std::cout << "| SAVE STOCKS |" << std::endl << std::endl;
-                std::string path = UI::scanFilePath();
+                std::string path = UI::scanFileName();
                 stockHashTable.save(path);
                 break;
             }
             case 7:
                 std::cout << "| LOAD STOCKS |" << std::endl << std::endl;
                 try {
-                    std::string path = UI::scanFilePath();
+                    std::string path = UI::scanFileName();
                     this->stockHashTable.load(path);
                 } catch (std::runtime_error &e) {
                     std::cout << e.what() << std::endl;

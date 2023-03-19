@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Read the CSV data
-csv_path = 'current_stock.csv'
+csv_path = './resources/current_stock.csv'
 data = pd.read_csv(csv_path)
 
 # Convert the 'Date' column to datetime objects

@@ -1,6 +1,6 @@
 #include <cstdint>
-#include "StockHashTable.h"
-#include "stock.h"
+#include "../includes/StockHashTable.h"
+#include "../includes/stock.h"
 
 int StockHashTable::hash(const std::string &key) const {
     uint32_t hash = 0;
@@ -118,7 +118,7 @@ StockHashTable::StockHashTable() {
 }
 
 void StockHashTable::save(const std::string &path) const {
-    std::ofstream ostream(path);
+    std::ofstream ostream("resources/" + path);
     for (auto i : stocksByName) {
         if (i->isEmpty() || i->isDeleted()) {
             continue;
@@ -140,7 +140,7 @@ void StockHashTable::deleteAll() {
 
 void StockHashTable::load(const std::string &path) {
     this->deleteAll();
-    std::ifstream inFile(path);
+    std::ifstream inFile("resources/" + path);
     while (inFile.peek() != EOF) {
         Stock stock;
         inFile >> stock;

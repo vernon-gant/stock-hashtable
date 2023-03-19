@@ -1,5 +1,5 @@
 #include <limits>
-#include "UI.h"
+#include "../includes/UI.h"
 
 void UI::printMenu() {
     std::cout << std::endl;
@@ -46,9 +46,9 @@ std::shared_ptr<Stock> UI::scanStock() {
     return std::make_shared<Stock>(name, shorthand, id);
 }
 
-std::string UI::scanFilePath() {
+std::string UI::scanFileName() {
     std::string path;
-    std::cout << "Enter file path: ";
+    std::cout << "Enter file name: ";
     std::cin >> path;
     std::cout << std::endl;
     return path;

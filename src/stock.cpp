@@ -1,4 +1,4 @@
-#include "stock.h"
+#include "../includes/stock.h"
 
 PriceData::PriceData() {
     date = "";
@@ -83,10 +83,10 @@ Stock::Stock() {
     prices = std::vector<PriceData>();
 }
 
-void Stock::importPrices(const std::string &path) {
-    std::ifstream ss(path);
+void Stock::importPrices(const std::string &fileName) {
+    std::ifstream ss("resources/" + fileName);
     if (!ss.is_open()) {
-        throw std::runtime_error("Failed to open file " + path);
+        throw std::runtime_error("Failed to open file " + fileName);
     }
 
     std::string line;
@@ -196,7 +196,7 @@ void Stock::setId(const std::string &id) {
 }
 
 void Stock::savePrices() const {
-    std::ofstream ss("current_stock.csv");
+    std::ofstream ss("./resources/current_stock.csv");
     if (!ss.is_open()) {
         throw std::runtime_error("Failed to save prices...");
     }
@@ -215,7 +215,7 @@ void Stock::plotPrice() const {
     this->savePrices();
     const std::string pythonInterpreterPath = R"(.\venv\Scripts\python.exe)";
     // Run the Python script and redirect its output to the console
-    std::system((std::string(pythonInterpreterPath + " plot.py")).c_str());
+    std::system((std::string(pythonInterpreterPath + " ./plotting/plot.py")).c_str());
 }
 
 

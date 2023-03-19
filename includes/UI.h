@@ -10,7 +10,7 @@ public:
     static void printMenu();
     static int scanChoice();
     static std::shared_ptr<Stock> scanStock();
-    static std::string scanFilePath();
+    static std::string scanFileName();
     static std::pair<std::string,bool> scanKeyword();
 };
 

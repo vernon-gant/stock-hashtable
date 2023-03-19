@@ -74,7 +74,7 @@ public:
         prices.push_back(priceData);
     }
 
-    void importPrices(const std::string &path);
+    void importPrices(const std::string &fileName);
 
     void printPrice() const;
 
